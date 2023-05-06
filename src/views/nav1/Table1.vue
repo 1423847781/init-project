@@ -44,6 +44,7 @@
 
         <el-select
           size="medium"
+          class="el-select-custom"
           v-model="tagValue"
           filterable
           allow-create
@@ -100,10 +101,10 @@ export default {
       allCount: 0,
       // 循环input
       formList: [
-        { value: undefined, field: "num4", label: "千 +", disabledStatus: false },
-        { value: undefined, field: "num3", label: "百 +", disabledStatus: false },
-        { value: undefined, field: "num2", label: "十 +", disabledStatus: false },
-        { value: undefined, field: "num1", label: "个 =", disabledStatus: false },
+        { value: undefined, field: "num1", label: "千 +", disabledStatus: false },
+        { value: undefined, field: "num2", label: "百 +", disabledStatus: false },
+        { value: undefined, field: "num3", label: "十 +", disabledStatus: false },
+        { value: undefined, field: "num4", label: "个 =", disabledStatus: false },
         { value: undefined, field: "collectAmount", label: "组", disabledStatus: false },
       ],
       formData: {
@@ -347,6 +348,11 @@ export default {
 
 .max-value {
   margin-right: 20px;
+  width: 130px;
+}
+
+.el-select-custom {
+  width: 128px;
 }
 
 .total-number span {

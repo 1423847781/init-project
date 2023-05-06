@@ -22,6 +22,7 @@
       <div class="right-content">
         <el-select
           size="medium"
+          class="el-select-custom"
           v-model="tagValue"
           filterable
           allow-create
@@ -113,18 +114,18 @@ export default {
       allCount: 0,
       // 循环input
       formList: [
-        { value: undefined, field: "num1", label: "个 +", disabledStatus: false },
-        { value: undefined, field: "num2", label: "十 +", disabledStatus: false },
-        { value: undefined, field: "num3", label: "百 +", disabledStatus: false },
-        { value: undefined, field: "num4", label: "千 =", disabledStatus: false },
+        { value: undefined, field: "num1", label: "千 +", disabledStatus: false },
+        { value: undefined, field: "num2", label: "百 +", disabledStatus: false },
+        { value: undefined, field: "num3", label: "十 +", disabledStatus: false },
+        { value: undefined, field: "num4", label: "个 =", disabledStatus: false },
         { value: undefined, field: "collectAmount", label: "组", disabledStatus: false },
       ],
-      radioType: "个位数",
+      radioType: "千位数",
       radioObj: {
-        个位数: 1,
-        十位数: 2,
-        百位数: 3,
-        千位数: 4,
+        千位数: 1,
+        百位数: 2,
+        十位数: 3,
+        个位数: 4,
       },
       resData: null,
       formData: {
@@ -306,6 +307,10 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.el-select-custom {
+  width: 128px;
 }
 
 .left-content {
