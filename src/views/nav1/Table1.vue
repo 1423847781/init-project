@@ -89,6 +89,7 @@ import {
   getTagList,
   addTag,
   setMaxRecord,
+  getMaxRecord,
 } from "@/api/index"; //导入api目录下的接口文件，并在{}中写使用的接口
 import TableItem from "./components/TableItem.vue";
 export default {
@@ -151,7 +152,7 @@ export default {
     async handleChange() {
       let data = {
         setMax: this.maxTableValue,
-        userId: this.userInfo.userId,
+        userId: this.userId,
       };
       const res = await setMaxRecord(data);
       if (res.code == 200) {
@@ -166,6 +167,12 @@ export default {
         sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
       }
       console.log(res);
+    },
+
+    // 获取标签对应的最大组数
+    async getTagMaxRecord() {
+      const res = await getMaxRecord({ userId: this.userId });
+      this.maxTableValue = res.data;
     },
 
     //添加标签
@@ -186,6 +193,7 @@ export default {
           this.getTagList();
         }
       }
+      this.getTagMaxRecord();
     },
 
     // 清空表格

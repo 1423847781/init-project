@@ -96,3 +96,12 @@ export function setMaxRecord(data) {
         data
     });
 }
+
+// 获取最大组数
+export function getMaxRecord(params) {
+    return request({
+        url: "/api/max-record/get/max",
+        method: "get",
+        params
+    });
+}
